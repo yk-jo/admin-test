@@ -21,7 +21,7 @@ export default function DefaultLayout() {
     [location]
   );
 
-  if (isHome) return <Navigate to={PathContants.UserMng} replace />;
+  if (isHome) return <Navigate to={PathContants.PlaygroundHome} replace />;
 
   return (
     <Box component="main">
