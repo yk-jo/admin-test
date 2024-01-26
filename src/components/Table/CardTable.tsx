@@ -95,7 +95,7 @@ export default function CardTable<ColType extends string | number | symbol>({
                     <Box sx={{ flex: 1 }}>
                       {column?.renderCell
                         ? column?.renderCell({ row, value: row[k as ColType] })
-                        : row[k as ColType].toString()}
+                        : row[k as ColType]?.toString()}
                     </Box>
                   </Box>
                 );
