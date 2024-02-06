@@ -1,4 +1,10 @@
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormHelperText,
+} from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
 
 interface RadioGroupProps {
@@ -6,6 +12,7 @@ interface RadioGroupProps {
   items: { label: string; value: string }[];
   selectedRows?: string[];
   disabled?: boolean;
+  errorText?: string;
   onChange?: (selectedRows: string[]) => void;
 }
 export default function CheckboxGroup({
@@ -13,6 +20,7 @@ export default function CheckboxGroup({
   items,
   selectedRows: _selectedRows = [],
   disabled,
+  errorText,
   onChange,
 }: RadioGroupProps) {
   const [selectedRows, setSelectedRows] = useState<string[]>(_selectedRows);
@@ -28,16 +36,23 @@ export default function CheckboxGroup({
   }, [selectedRows]);
 
   return (
-    <FormGroup row={direction === "row"}>
-      {items.map((item) => (
-        <FormControlLabel
-          key={item.value}
-          control={<Checkbox name={item.value} onChange={handleChange} />}
-          label={item.label}
-          disabled={disabled}
-          checked={selectedRows.includes(String(item.value))}
-        />
-      ))}
-    </FormGroup>
+    <FormControl
+      component={"fieldset"}
+      variant="standard"
+      error={Boolean(errorText)}
+    >
+      <FormGroup row={direction === "row"}>
+        {items.map((item) => (
+          <FormControlLabel
+            key={item.value}
+            control={<Checkbox name={item.value} onChange={handleChange} />}
+            label={item.label}
+            disabled={disabled}
+            checked={selectedRows.includes(String(item.value))}
+          />
+        ))}
+      </FormGroup>
+      {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
+    </FormControl>
   );
 }

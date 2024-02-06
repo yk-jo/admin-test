@@ -1,4 +1,6 @@
 import {
+  FormControl,
+  FormHelperText,
   Select as MUISelect,
   MenuItem,
   SelectChangeEvent,
@@ -12,6 +14,7 @@ interface SelectProps {
     value: string;
   }[];
   fullWidth?: boolean;
+  errorText?: string;
   onChange?: (e: SelectChangeEvent) => void;
 }
 export default function Select({
@@ -19,20 +22,24 @@ export default function Select({
   disabled,
   items,
   fullWidth,
+  errorText,
   onChange,
 }: SelectProps) {
   return (
-    <MUISelect
-      value={value}
-      onChange={onChange}
-      disabled={disabled}
-      fullWidth={fullWidth}
-    >
-      {items.map((item) => (
-        <MenuItem key={item.value} value={item.value}>
-          {item.label}
-        </MenuItem>
-      ))}
-    </MUISelect>
+    <FormControl fullWidth={fullWidth} error={Boolean(errorText)}>
+      <MUISelect
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        sx={{ width: fullWidth ? "auto" : "fit-content" }}
+      >
+        {items.map((item) => (
+          <MenuItem key={item.value} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
+      </MUISelect>
+      {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
+    </FormControl>
   );
 }

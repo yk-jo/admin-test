@@ -5,26 +5,6 @@ const PathContants = {
   Login: "/login",
   UserMng: "/users",
   UserDetail: "/users/detail/:id",
-  ContentMng: "/contents",
-  ContentHearingLoss: "/contents/hearing-loss",
-  ContentCognitive: "/contents/cognitive",
-  ContentStress: "/contents/stress",
-  ResultMng: "/results",
-  ResultDetail: "/results/detail",
-  PaymentMng: "/payments",
-  TermsMng: "/terms",
-  TermsDetail: "/terms/detail",
-  CreateTerms: "/terms/create",
-  UpdateTerms: "/terms/update",
-  FaqMng: "/faq",
-  FaqDetail: "/faq/detail",
-  CreateFaq: "/faq/create",
-  UpdateFaq: "/faq/update",
-  VersionMng: "/version",
-  VersionDetail: "/version/detail",
-  CreateVersion: "/version/create",
-  UpdateVersion: "/version/update",
-  GoogleAnalyticsPath: "https://www.google.com",
 
   //
   PlaygroundHome: `${playground}`,
@@ -44,6 +24,10 @@ const PathContants = {
   PlaygroundSamplePageView: `${playground}/sample/page-view`,
   PlaygroundSamplePageViewDetail: `${playground}/sample/page-view/:id`,
   PlaygroundSampleDashboardView: `${playground}/sample/dashboard-view`,
+  PlaygroundSampleFormView: `${playground}/sample/form-view`,
+
+  PlaygroundNaverMap: `${playground}/sample/naver-map`,
+  PlaygroundNaverMap_RoadView:`${playground}/sample/naver-map/roadview`
 };
 
 export default PathContants;

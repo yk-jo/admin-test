@@ -2,9 +2,10 @@ import DefaultModal from "@/components/ModalContainer/DefaultModal";
 import { ModalPropsType } from "@/stores/modalStore";
 import * as S from "./AlertModal.style";
 import { Button } from "@mui/material";
+import { ReactNode } from "react";
 
-interface AlertModalProps extends ModalPropsType {
-  message: string;
+export interface AlertModalProps extends ModalPropsType {
+  message: ReactNode;
 }
 export default function AlertModal({
   message,

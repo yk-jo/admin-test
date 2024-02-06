@@ -10,26 +10,26 @@ import { useState } from "react";
 type colType = "id" | "firstName" | "lastName" | "fullName" | "age";
 
 const columns: GridColDef[] = [
-  { field: "id", headerName: "ID", width: 70 },
+  { field: "id", headerName: "ID", flex: 1 },
   {
     field: "firstName",
     headerName: "First name",
-    width: 150,
+    flex: 2,
     renderCell: (params: GridRenderCellParams) => <Box>{params.value?.a}</Box>,
   },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  { field: "lastName", headerName: "Last name", flex: 2 },
   {
     field: "age",
     headerName: "Age",
     type: "number",
-    width: 90,
+    flex: 1,
   },
   {
     field: "fullName",
     headerName: "Full name",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    flex: 4,
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
@@ -106,6 +106,22 @@ export default function TableExample() {
     >
       <Table
         columns={columns}
+        rows={rows}
+        pagination
+        page={page}
+        total={121}
+        limit={20}
+        onChangePage={setPage}
+      />
+      <Table
+        columns={columns}
+        columnGroupingModel={[
+          {
+            groupId: "group1",
+            children: [{ field: "firstName" }, { field: "lastName" }],
+            headerAlign: "center",
+          },
+        ]}
         rows={rows}
         pagination
         page={page}

@@ -1,8 +1,9 @@
 import { Dayjs } from "dayjs";
+import { Nullable } from "./common";
 
 export type RangeDateType = {
-  start: Dayjs | null;
-  end: Dayjs | null;
+  start: Nullable<Dayjs>;
+  end: Nullable<Dayjs>;
 };
 
 export type DatePickerRefType = {

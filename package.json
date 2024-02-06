@@ -1,5 +1,5 @@
 {
-  "name": "admin-template",
+  "name": "voinosis-admin",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.4",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@mui/material": "^5.15.4",
@@ -28,18 +29,25 @@
     "jodit-react": "^4.0.4",
     "qs": "^6.11.2",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-chartjs-2": "^5.2.0",
     "react-daum-postcode": "^3.1.3",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
     "react-router-dom": "^6.15.0",
     "react-use": "^17.4.2",
+    "vconsole": "^3.15.1",
     "vite-plugin-html": "^3.2.1",
+    "vite-plugin-vconsole": "^2.0.1",
+    "yup": "^1.3.3",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@types/navermaps": "^3.7.4",
     "@types/node": "^20.11.0",
     "@types/qs": "^6.9.11",
     "@types/react": "^18.2.43",
+    "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
@@ -52,8 +60,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-svgr": "^4.2.0"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.6.1"
   }
 }

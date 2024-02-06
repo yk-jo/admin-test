@@ -25,6 +25,12 @@ export default function RadioExample() {
         onChange={(e) => setRadio(e.target.value)}
         disabled
       />
+      <RadioGroup
+        items={radioGroupSample}
+        value={radio}
+        onChange={(e) => setRadio(e.target.value)}
+        errorText="You can display an error"
+      />
       Column
       <RadioGroup
         direction="column"
@@ -38,6 +44,13 @@ export default function RadioExample() {
         value={radio}
         onChange={(e) => setRadio(e.target.value)}
         disabled
+      />
+      <RadioGroup
+        direction="column"
+        items={radioGroupSample}
+        value={radio}
+        onChange={(e) => setRadio(e.target.value)}
+        errorText="You can display an error"
       />
     </Box>
   );

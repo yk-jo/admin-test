@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { ChangeEvent, DragEvent, MouseEvent, useState } from "react";
+import { FormControl, FormHelperText, Typography } from "@mui/material";
+import { ChangeEvent, DragEvent, MouseEvent, useMemo, useState } from "react";
 import * as S from "./Upload.style";
 import MdiIcon from "../MdiIcon";
 import { mdiCloudUpload, mdiDeleteOutline } from "@mdi/js";
@@ -11,6 +11,7 @@ interface ImageUploadProps {
   width?: string;
   height?: string;
   image?: File | null;
+  errorText?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onDrop: (event: DragEvent<HTMLElement>) => void;
 }
@@ -21,6 +22,7 @@ export default function ImageUpload({
   width = "100px",
   height = "100px",
   image: _image = null,
+  errorText,
   onChange,
   onDrop,
 }: ImageUploadProps) {
@@ -63,9 +65,10 @@ export default function ImageUpload({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
+      onChange(e);
     }
+
     e.target.value = "";
-    onChange(e);
   };
 
   const handleDelete = (e: MouseEvent<HTMLButtonElement>) => {
@@ -73,23 +76,29 @@ export default function ImageUpload({
     setImage(null);
   };
 
+  const fileId = useMemo(() => Math.random().toString(36), []);
+
   return (
-    <Box sx={{ width, height }}>
+    <FormControl sx={{ width }} error={Boolean(errorText)}>
       <S.FileUploadInput
         onChange={handleChange}
         accept={accept}
-        id="file-upload"
+        id={fileId}
         type="file"
       />
 
       <S.FileUploadLabel
-        htmlFor="file-upload"
+        htmlFor={fileId}
         {...dragEvents}
         isDragOver={isDragOver}
       >
         {image ? (
-          <S.ImageBox isOver={isDragOver || isMouseOver} sx={{ width, height }}>
-            <img alt="file upload" src={URL.createObjectURL(image)} />
+          <S.ImageBox
+            isOver={isDragOver || isMouseOver}
+            error={Boolean(errorText)}
+            sx={{ width, height }}
+          >
+            <img alt="file-image" src={URL.createObjectURL(image)} />
             <S.DeleteButton onClick={handleDelete}>
               <MdiIcon path={mdiDeleteOutline} />
             </S.DeleteButton>
@@ -98,6 +107,7 @@ export default function ImageUpload({
           <S.NoMouseEvent sx={{ width, height }}>
             <S.IconTextBox
               isOver={isDragOver || isMouseOver}
+              error={Boolean(errorText)}
               sx={{ width, height }}
             >
               <MdiIcon path={mdiCloudUpload} size={1.5} />
@@ -106,6 +116,7 @@ export default function ImageUpload({
           </S.NoMouseEvent>
         )}
       </S.FileUploadLabel>
-    </Box>
+      {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
+    </FormControl>
   );
 }

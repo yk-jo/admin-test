@@ -17,7 +17,7 @@ type ModalType = {
 type ModalStoreType = {
   modals: ModalType[];
   open: (
-    Component: ComponentType<ModalPropsType>,
+    Component: ComponentType<any>,
     props: ModalPropsType
   ) => void;
   close: (key: string) => void;
@@ -26,7 +26,7 @@ type ModalStoreType = {
 
 export const useModalStore = create<ModalStoreType>((set, get) => ({
   modals: [],
-  open: (Component: ComponentType<ModalPropsType>, props: ModalPropsType) => {
+  open: (Component: ComponentType<any>, props: ModalPropsType) => {
     const { modals } = get();
     const modal = props.key ? modals.find((m) => m.key === props.key) : null;
     const key = props.key || Date.now().toString();

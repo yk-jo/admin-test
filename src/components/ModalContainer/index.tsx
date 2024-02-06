@@ -1,11 +1,12 @@
 "use client";
 import { ModalPropsType, useModalStore } from "@/stores/modalStore";
+import { Nullable } from "@/types/common";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function ModalContainer() {
   const { modals, close } = useModalStore();
-  const [portal, setPortal] = useState<Element | null>(null);
+  const [portal, setPortal] = useState<Nullable<Element>>(null);
 
   useEffect(() => {
     setPortal(document.getElementById("modal"));

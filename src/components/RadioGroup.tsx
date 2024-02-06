@@ -1,6 +1,8 @@
 import { InputRefType } from "@/types/common";
 import {
+  FormControl,
   FormControlLabel,
+  FormHelperText,
   RadioGroup as MUIRadioGroup,
   Radio,
 } from "@mui/material";
@@ -16,10 +18,18 @@ interface RadioGroupProps {
   items: { label: string; value: string }[];
   value: string;
   disabled?: boolean;
+  errorText?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 export default forwardRef(function RadioGroup(
-  { direction = "row", items, value, disabled, onChange }: RadioGroupProps,
+  {
+    direction = "row",
+    items,
+    value,
+    disabled,
+    errorText,
+    onChange,
+  }: RadioGroupProps,
   ref: ForwardedRef<InputRefType>
 ) {
   useImperativeHandle(ref, () => ({
@@ -27,16 +37,27 @@ export default forwardRef(function RadioGroup(
   }));
 
   return (
-    <MUIRadioGroup row={direction === "row"} value={value} onChange={onChange}>
-      {items.map((item) => (
-        <FormControlLabel
-          key={item.value}
-          value={item.value}
-          control={<Radio size="small" />}
-          label={item.label}
-          disabled={disabled}
-        />
-      ))}
-    </MUIRadioGroup>
+    <FormControl
+      component={"fieldset"}
+      variant="standard"
+      error={Boolean(errorText)}
+    >
+      <MUIRadioGroup
+        row={direction === "row"}
+        value={value}
+        onChange={onChange}
+      >
+        {items.map((item) => (
+          <FormControlLabel
+            key={item.value}
+            value={item.value}
+            control={<Radio size="small" />}
+            label={item.label}
+            disabled={disabled}
+          />
+        ))}
+      </MUIRadioGroup>
+      {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
+    </FormControl>
   );
 });

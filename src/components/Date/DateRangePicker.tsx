@@ -2,14 +2,14 @@ import { Box } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 import DatePicker from "./DatePicker";
 import { ForwardedRef, forwardRef, useImperativeHandle, useRef } from "react";
-import { InputRefType } from "@/types/common";
+import { InputRefType, Nullable } from "@/types/common";
 import { DatePickerRefType } from "@/types/date";
 
 interface DateRangePickerProps {
-  start?: Dayjs | null;
-  end?: Dayjs | null;
+  start?: Nullable<Dayjs>;
+  end?: Nullable<Dayjs>;
   fullWidth?: boolean;
-  onChange?: (type: "all" | "start" | "end", value: Dayjs | null) => void;
+  onChange?: (type: "all" | "start" | "end", value: Nullable<Dayjs>) => void;
 }
 export default forwardRef(function DateRangePicker(
   { start = null, end = null, fullWidth, onChange }: DateRangePickerProps,
@@ -18,11 +18,11 @@ export default forwardRef(function DateRangePicker(
   const startRef = useRef<DatePickerRefType>(null);
   const endRef = useRef<DatePickerRefType>(null);
 
-  const handleStartChange = (value: Dayjs | null) => {
+  const handleStartChange = (value: Nullable<Dayjs>) => {
     onChange?.("start", value);
   };
 
-  const handleEndChange = (value: Dayjs | null) => {
+  const handleEndChange = (value: Nullable<Dayjs>) => {
     onChange?.("end", value);
   };
 

@@ -12,7 +12,7 @@ type MenuItemProps = {
 };
 
 export const MenuSubheader = styled(ListSubheader)(({ theme }) => ({
-  backgroundColor: "transparent",
+  backgroundColor: theme.palette.sidebar.menuBg,
   color: theme.palette.sidebar.menuItemColor,
 }));
 export const MenuItemButton = styled(ListItemButton, {

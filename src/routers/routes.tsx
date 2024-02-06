@@ -7,14 +7,6 @@ import PlaygroundHome from "@/pages/playground/home";
 import PlaygroundInput from "@/pages/playground/input";
 import PlaygroundSampleLogin from "@/pages/playground/sample/login";
 import Users from "@/pages/admin/users";
-import ContentHearingLoss from "@/pages/admin/contents/hearing-loss";
-import ContentCognitive from "@/pages/admin/contents/cognitive";
-import ContentStress from "@/pages/admin/contents/stress";
-import Results from "@/pages/admin/results";
-import Payments from "@/pages/admin/payments";
-import Terms from "@/pages/admin/terms";
-import Faq from "@/pages/admin/faq";
-import Version from "@/pages/admin/version";
 import PlaygroundSampleStarter from "@/pages/playground/sample/starter";
 import UserDetail from "@/pages/admin/users/detail";
 import Error404 from "@/pages/admin/error/error404";
@@ -22,9 +14,12 @@ import PlaygroundChartBar from "@/pages/playground/chart/bar";
 import PlaygroundChartLine from "@/pages/playground/chart/line";
 import PlaygroundChartOther from "@/pages/playground/chart/other";
 import PlaygroundIcon from "@/pages/playground/icon";
-import PlaygroundSamplePageView from "@/pages/playground/sample/\bpage-view";
-import PlaygroundSamplePageViewDetail from "@/pages/playground/sample/\bpage-view/detail";
+import PlaygroundSamplePageView from "@/pages/playground/sample/page-view";
+import PlaygroundSamplePageViewDetail from "@/pages/playground/sample/page-view/detail";
 import PlaygroundDashboardView from "@/pages/playground/sample/dashboard-view";
+import PlaygroundFormView from "@/pages/playground/sample/form-view";
+import PlaygroundNaverMap from "@/pages/playground/sample/naver-map";
+import RoadView from "@/pages/playground/sample/naver-map/RoadView";
 
 export const routes: RouteObject[] = [
   {
@@ -42,43 +37,6 @@ export const routes: RouteObject[] = [
           { index: true, element: <Users /> },
           { path: PathContants.UserDetail, element: <UserDetail /> },
         ],
-      },
-      {
-        path: PathContants.ContentMng,
-        children: [
-          {
-            path: PathContants.ContentHearingLoss,
-            element: <ContentHearingLoss />,
-          },
-          {
-            path: PathContants.ContentCognitive,
-            element: <ContentCognitive />,
-          },
-          {
-            path: PathContants.ContentStress,
-            element: <ContentStress />,
-          },
-        ],
-      },
-      {
-        path: PathContants.ResultMng,
-        element: <Results />,
-      },
-      {
-        path: PathContants.PaymentMng,
-        element: <Payments />,
-      },
-      {
-        path: PathContants.TermsMng,
-        element: <Terms />,
-      },
-      {
-        path: PathContants.FaqMng,
-        element: <Faq />,
-      },
-      {
-        path: PathContants.VersionMng,
-        element: <Version />,
       },
     ],
   },
@@ -142,8 +100,25 @@ export const routes: RouteObject[] = [
           },
           {
             path: PathContants.PlaygroundSampleDashboardView,
-            element: <PlaygroundDashboardView/>
-          }
+            element: <PlaygroundDashboardView />,
+          },
+          {
+            path: PathContants.PlaygroundSampleFormView,
+            element: <PlaygroundFormView />,
+          },
+          {
+            path: PathContants.PlaygroundNaverMap,
+            children: [
+              {
+                index: true,
+                element: <PlaygroundNaverMap />,
+              },
+              {
+                path: PathContants.PlaygroundNaverMap_RoadView,
+                element: <RoadView />,
+              },
+            ],
+          },
         ],
       },
     ],

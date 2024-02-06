@@ -83,6 +83,10 @@ export const _SidebarMenus: SideBarMenu[] = [
             label: "TreeView",
             to: PathContants.PlaygroundInput.replace(":type", "tree-view"),
           },
+          {
+            label: "List",
+            to: PathContants.PlaygroundInput.replace(":type", "list"),
+          },
         ],
         icon: <MdiIcon path={mdiFileDocument} />,
       },
@@ -139,6 +143,16 @@ export const _SidebarMenus: SideBarMenu[] = [
       {
         label: "Dashboard View",
         to: PathContants.PlaygroundSampleDashboardView,
+        icon: <MdiIcon path={mdiFileDocument} />,
+      },
+      {
+        label: "Form View",
+        to: PathContants.PlaygroundSampleFormView,
+        icon: <MdiIcon path={mdiFileDocument} />,
+      },
+      {
+        label: "Naver Map",
+        to: PathContants.PlaygroundNaverMap,
         icon: <MdiIcon path={mdiFileDocument} />,
       },
     ],

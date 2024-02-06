@@ -1,31 +1,32 @@
-import DateRangePicker from "@/components/Date/DateRangePicker";
-import Input from "@/components/Input";
+import { DateRangePicker } from "@/components/Date";
+import { Input } from "@/components/Input";
 import RadioGroup from "@/components/RadioGroup";
 import SearchFilter from "@/components/SearchFilter";
+import { Nullable } from "@/types/common";
 import { Box } from "@mui/material";
 import { Dayjs } from "dayjs";
 import { useState } from "react";
 
 export default function SearchFilterExample() {
   const [range, setRange] = useState<{
-    start: Dayjs | null;
-    end: Dayjs | null;
+    start: Nullable<Dayjs>;
+    end: Nullable<Dayjs>;
   }>({ start: null, end: null });
   const [range2, setRange2] = useState<{
-    start: Dayjs | null;
-    end: Dayjs | null;
+    start: Nullable<Dayjs>;
+    end: Nullable<Dayjs>;
   }>({ start: null, end: null });
   const [keyword, setKeyword] = useState<string>("");
   const [radio, setRadio] = useState<string>("all");
 
-  const handleChange = (type: "all" | "start" | "end", value: Dayjs | null) => {
+  const handleChange = (type: "all" | "start" | "end", value: Nullable<Dayjs>) => {
     if (type === "all") setRange({ ...range, start: value, end: value });
     else setRange({ ...range, [type]: value });
   };
 
   const handleChange2 = (
     type: "all" | "start" | "end",
-    value: Dayjs | null
+    value: Nullable<Dayjs>
   ) => {
     if (type === "all") setRange2({ ...range2, start: value, end: value });
     else setRange2({ ...range2, [type]: value });

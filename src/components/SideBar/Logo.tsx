@@ -1,22 +1,23 @@
+import { appBarHeight } from "@/config";
 import { Box } from "@mui/material";
 
 interface LogoProps {
   srcLogo?: string;
   srcLogoIcon?: string;
-  isUpMd?: boolean;
+  full?: boolean;
 }
-export default function Logo({ srcLogo, srcLogoIcon, isUpMd }: LogoProps) {
+export default function Logo({ srcLogo, srcLogoIcon, full }: LogoProps) {
   return (
     <Box
       sx={(theme) => ({
-        height: "55px",
+        height: `${appBarHeight}px`,
         color: theme.palette.appbar.appbarItemColor,
-        padding: isUpMd ? "10px 20px" : "10px",
+        padding: "10px",
         textAlign: "center",
       })}
     >
       <img
-        src={isUpMd ? srcLogo : srcLogoIcon}
+        src={full ? srcLogo : srcLogoIcon}
         alt="logo"
         style={{ height: "100%" }}
       />

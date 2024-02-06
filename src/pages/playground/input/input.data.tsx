@@ -14,8 +14,10 @@ import TableExample from "./examples/TableExample";
 import TextExample from "./examples/TextExample";
 import TreeExample from "./examples/TreeExample";
 import WysiwygExample from "./examples/WysiwygExample";
+import ListExample from "./examples/ListExample";
 
-export const examples: { [k: string]: { title: string; element: ReactNode } } = {
+export const examples: { [k: string]: { title: string; element: ReactNode } } =
+  {
     input: { title: "Input", element: <TextExample /> },
     button: { title: "Button", element: <ButtonExample /> },
     radio: { title: "Radio Group", element: <RadioExample /> },
@@ -23,7 +25,10 @@ export const examples: { [k: string]: { title: string; element: ReactNode } } = 
     select: { title: "Select", element: <SelectExample /> },
     datepicker: { title: "Date Picker", element: <DateExample /> },
     card: { title: "Card", element: <CardExample /> },
-    "search-filter": { title: "Search Filter", element: <SearchFilterExample /> },
+    "search-filter": {
+      title: "Search Filter",
+      element: <SearchFilterExample />,
+    },
     wysiwyg: { title: "Wysiwyg Editor", element: <WysiwygExample /> },
     table: { title: "Table", element: <TableExample /> },
     switch: { title: "Switch", element: <SwitchExample /> },
@@ -31,4 +36,5 @@ export const examples: { [k: string]: { title: string; element: ReactNode } } = 
     upload: { title: "FileUpload", element: <FileUploadExample /> },
     tab: { title: "Tab", element: <TabExample /> },
     "tree-view": { title: "TreeView", element: <TreeExample /> },
+    list: { title: "List", element: <ListExample /> },
   };

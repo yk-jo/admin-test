@@ -19,6 +19,12 @@ export default function CheckExample() {
         onChange={setSelectedRows}
       />
       <CheckboxGroup items={checkboxGroupSample} disabled />
+      <CheckboxGroup
+        items={checkboxGroupSample}
+        selectedRows={selectedRows}
+        onChange={setSelectedRows}
+        errorText="You can display an error"
+      />
       Column
       <CheckboxGroup
         direction="column"
@@ -27,6 +33,13 @@ export default function CheckExample() {
         onChange={setSelectedRows}
       />
       <CheckboxGroup direction="column" items={checkboxGroupSample} disabled />
+      <CheckboxGroup
+        direction="column"
+        items={checkboxGroupSample}
+        selectedRows={selectedRows}
+        onChange={setSelectedRows}
+        errorText="You can display an error"
+      />
     </Box>
   );
 }

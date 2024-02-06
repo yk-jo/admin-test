@@ -1,3 +1,4 @@
+import { Nullable } from "@/types/common";
 import {
   Box,
   Card,
@@ -10,13 +11,13 @@ import { ReactNode, useState } from "react";
 
 type CustomGridColDef = GridColDef & {
   renderCell: (params: {
-    row: { [k: string]: any | null };
+    row: { [k: string]: Nullable<any> };
     value: any;
   }) => ReactNode;
 };
 
 interface CardTableProps<ColType extends string | number | symbol> {
-  rows: Array<{ [k in ColType]: any | null } & { id: any }>;
+  rows: Array<{ [k in ColType]: Nullable<any> } & { id: any }>;
   columns: CustomGridColDef[];
   checkbox?: boolean;
   onRowSelection: (ids: (string | number)[]) => void;

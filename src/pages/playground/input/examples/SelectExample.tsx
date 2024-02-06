@@ -26,7 +26,20 @@ export default function SelectExample() {
         items={sample}
         value={select}
         onChange={(e) => setSelect(e.target.value)}
+        errorText="Lorem ipsum dolor sit amet."
+      />
+      <Select
+        items={sample}
+        value={select}
+        onChange={(e) => setSelect(e.target.value)}
         fullWidth
+      />
+      <Select
+        items={sample}
+        value={select}
+        onChange={(e) => setSelect(e.target.value)}
+        fullWidth
+        errorText="Lorem ipsum dolor sit amet."
       />
     </Box>
   );

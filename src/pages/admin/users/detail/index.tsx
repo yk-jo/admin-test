@@ -6,9 +6,8 @@ import Card from "@/components/Card";
 import Label from "@/components/Label";
 import RadioGroup from "@/components/RadioGroup";
 import GridSystem from "@/components/GridSystem";
-import Input from "@/components/Input";
-import DatePicker from "@/components/Date/DatePicker";
-import PhoneInput from "@/components/Input/PhoneInput";
+import { DatePicker } from "@/components/Date";
+import { Input, PhoneInput } from "@/components/Input";
 import MdiIcon from "@/components/MdiIcon";
 import { mdiFormatListBulleted } from "@mdi/js";
 

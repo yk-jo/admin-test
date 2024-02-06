@@ -1,10 +1,9 @@
 import { Box } from "@mui/material";
 import Card from "@/components/Card";
 import Label from "@/components/Label";
-import Input from "@/components/Input";
-import DatePicker from "@/components/Date/DatePicker";
+import { DatePicker } from "@/components/Date";
 import RadioGroup from "@/components/RadioGroup";
-import PhoneInput from "@/components/Input/PhoneInput";
+import { Input, PhoneInput } from "@/components/Input";
 
 export default function CardExample() {
   return (

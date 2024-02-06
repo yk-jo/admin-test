@@ -1,3 +1,4 @@
 import ImageUpload from "./ImageUpload";
+import ImageUploadGroup from "./ImageUploadGroup";
 
-export { ImageUpload };
+export { ImageUpload, ImageUploadGroup };

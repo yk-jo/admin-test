@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import Input from "@/components/Input";
+import { Input } from "@/components/Input";
 import Label from "@/components/Label";
 import { copyright } from "@/config";
 import * as S from "./login.style";

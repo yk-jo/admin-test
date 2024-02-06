@@ -1,15 +1,19 @@
-import { Box, IconButton, AppBar as MUIAppBar, Toolbar } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  AppBar as MUIAppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { publish } from "@/utils/events";
-import useResponsive from "@/hooks/useResponsive";
 import MdiIcon from "./MdiIcon";
 import { mdiLogout, mdiMenu } from "@mdi/js";
 
 interface AppBarProps {
+  title?: string;
   onClickLogout?: () => void;
 }
-export default function AppBar({ onClickLogout }: AppBarProps) {
-  const { isXs, isSm } = useResponsive();
-
+export default function AppBar({ title, onClickLogout }: AppBarProps) {
   const open = () => {
     publish("onToggleSideBar");
   };
@@ -17,16 +21,15 @@ export default function AppBar({ onClickLogout }: AppBarProps) {
   return (
     <MUIAppBar position="static">
       <Toolbar>
-        {(isSm || isXs) && (
-          <IconButton
-            onClick={open}
-            sx={(theme) => ({
-              color: theme.palette.appbar.appbarItemColor,
-            })}
-          >
-            <MdiIcon path={mdiMenu} />
-          </IconButton>
-        )}
+        <IconButton
+          onClick={open}
+          sx={(theme) => ({
+            color: theme.palette.appbar.appbarItemColor,
+          })}
+        >
+          <MdiIcon path={mdiMenu} />
+        </IconButton>
+        {title && <Typography>{title}</Typography>}
         <Box
           sx={(theme) => ({
             flexGrow: 1,

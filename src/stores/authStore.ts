@@ -4,7 +4,7 @@ import { PersistOptions, createJSONStorage, persist } from "zustand/middleware";
 type AuthStoreType = {
   accessToken?: string;
   tokenType?: string;
-  setLogin: (accessToken: string, tokenType: string) => void;
+  setToken: (accessToken: string, tokenType: string) => void;
   clear: () => void;
 };
 
@@ -16,7 +16,7 @@ type PersistAuthStoreType = (
 export const useAuthStore = create<AuthStoreType>(
   (persist as PersistAuthStoreType)(
     (set) => ({
-      setLogin: (accessToken, tokenType) => set({ accessToken, tokenType }),
+      setToken: (accessToken, tokenType) => set({ accessToken, tokenType }),
       clear: () => set({ accessToken: undefined, tokenType: undefined }),
     }),
     {

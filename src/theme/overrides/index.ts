@@ -9,6 +9,8 @@ import Switch from "./Switch";
 import Tabs from "./Tabs";
 import Button from "./Button";
 import Breadcrumbs from "./Breadcrumbs";
+import DataGrid from "./DataGrid";
+import InputBase from "./InputBase";
 
 export default function componentsOverrides(theme: Theme) {
   return Object.assign(
@@ -21,6 +23,8 @@ export default function componentsOverrides(theme: Theme) {
     Switch(theme),
     Tabs(theme),
     Button(theme),
-    Breadcrumbs(theme)
+    Breadcrumbs(theme),
+    DataGrid(theme),
+    InputBase(theme)
   );
 }

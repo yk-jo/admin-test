@@ -1,4 +1,4 @@
-import { Box, List } from "@mui/material";
+import { List } from "@mui/material";
 import { ReactNode, useEffect } from "react";
 import { SideBarMenu } from "@/types/config";
 import MenuItem from "./MenuItem";
@@ -18,12 +18,14 @@ interface SideBarProps {
     logo: string;
     icon: string;
   };
+  onOpen?: (open: boolean) => void;
 }
 export default function SideBar({
   children,
   menuItems,
   enableSubHeader,
   src,
+  onOpen,
 }: SideBarProps) {
   const [open, toggleOpen] = useToggle(false);
 
@@ -33,6 +35,7 @@ export default function SideBar({
   const handleToggleSideBar = (e: any) => {
     toggleOpen(e.detail);
   };
+
   useEffect(() => {
     subscribe("onToggleSideBar", handleToggleSideBar);
     return () => {
@@ -41,26 +44,26 @@ export default function SideBar({
   }, []);
 
   useEffect(() => {
+    // 사이드바 펼쳐진 상태에서 화면이 줄어들면 사이드바 접기
     if (!isUpMd && open) toggleOpen();
   }, [isUpMd]);
 
+  useEffect(() => onOpen?.(open), [open]);
+
   return (
     <S.SideBarContainer>
-      <S.CustomDrawer
-        variant={isXs ? "temporary" : "permanent"}
-        open={isUpMd || open}
-      >
+      <S.CustomDrawer variant={isXs ? "temporary" : "permanent"} open={open}>
         {isXs && (
           <S.CloseDrawerButton onClick={toggleOpen}>
             <MdiIcon path={mdiArrowLeft} />
           </S.CloseDrawerButton>
         )}
-        <Logo isUpMd={isUpMd} srcLogo={src?.logo} srcLogoIcon={src?.icon} />
+        <Logo full={open} srcLogo={src?.logo} srcLogoIcon={src?.icon} />
         {menuItems && (
           <List sx={{ padding: 0 }}>
             <MenuItem
               items={menuItems}
-              rootBarOpen={isUpMd || open}
+              rootBarOpen={open}
               enableSubHeader={enableSubHeader}
             />
           </List>

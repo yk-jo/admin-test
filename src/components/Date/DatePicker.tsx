@@ -1,15 +1,14 @@
+import { Nullable } from "@/types/common";
 import { DatePickerRefType } from "@/types/date";
 import { DatePicker as MUIDatePicker } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 import { ForwardedRef, forwardRef, useImperativeHandle, useState } from "react";
-import MdiIcon from "../MdiIcon";
-import { mdiCalendar } from "@mdi/js";
 
 export interface DatePickerProps {
-  value?: Dayjs | null;
+  value?: Nullable<Dayjs>;
   fullWidth?: boolean;
-  shouldDisableDate?: (day: Dayjs | null) => boolean;
-  onChange?: (value: Dayjs | null) => void;
+  shouldDisableDate?: (day: Nullable<Dayjs>) => boolean;
+  onChange?: (value: Nullable<Dayjs>) => void;
   onOpen?: () => void;
 }
 export default forwardRef(function DatePicker(
@@ -27,7 +26,7 @@ export default forwardRef(function DatePicker(
   const handleClear = () => {
     onChange?.(null);
   };
-  const handleChange = (value: Dayjs | null) => {
+  const handleChange = (value: Nullable<Dayjs>) => {
     onChange?.(value);
     setOpen(false);
   };

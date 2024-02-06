@@ -25,7 +25,7 @@ const _typography:
   body1: {
     fontSize: "14px",
   },
-  fontFamily: "Nunito, 'Noto Sans KR', serif",
+  fontFamily: "Nunito, 'Noto Sans KR'",
 };
- 
+
 export default _typography;

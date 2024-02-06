@@ -1,9 +1,11 @@
 import {
   Box,
+  FormControl,
+  FormHelperText,
   MenuItem,
+  OutlinedInput,
   Select,
   SelectChangeEvent,
-  TextField,
 } from "@mui/material";
 
 interface PhoneInputProps {
@@ -12,6 +14,7 @@ interface PhoneInputProps {
   value?: string;
   placeholder?: string;
   disabled?: boolean;
+  errorText?: string;
   onChange?: (e: { digit: string; text: string }) => void;
 }
 
@@ -22,6 +25,7 @@ export default function PhoneInput({
   disabled,
   onChange,
   digitOptions,
+  errorText,
 }: PhoneInputProps) {
   const handleChangeDigit = (e: SelectChangeEvent<string>) => {
     onChange?.({ digit: e.target.value, text: value || "" });
@@ -56,28 +60,31 @@ export default function PhoneInput({
   };
 
   return (
-    <Box display="flex" gap={1}>
-      <Select
-        value={digitValue}
-        onChange={handleChangeDigit}
-        disabled={disabled}
-      >
-        {digitOptions.map((digit) => (
-          <MenuItem key={digit} value={digit}>
-            {digit}
-          </MenuItem>
-        ))}
-      </Select>
-      <TextField
-        variant="outlined"
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChangeText}
-        onKeyDown={handleKeyDownText}
-        fullWidth
-        disabled={disabled}
-        inputProps={{ maxLength: 9 }}
-      />
-    </Box>
+    <FormControl error={Boolean(errorText)}>
+      <Box display="flex" gap={1} alignItems={"flex-start"}>
+        <Select
+          value={digitValue}
+          onChange={handleChangeDigit}
+          disabled={disabled}
+          error={Boolean(errorText)}
+        >
+          {digitOptions.map((digit) => (
+            <MenuItem key={digit} value={digit}>
+              {digit}
+            </MenuItem>
+          ))}
+        </Select>
+        <OutlinedInput
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChangeText}
+          onKeyDown={handleKeyDownText}
+          fullWidth
+          disabled={disabled}
+          inputProps={{ maxLength: 9 }}
+        />
+      </Box>
+      {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
+    </FormControl>
   );
 }

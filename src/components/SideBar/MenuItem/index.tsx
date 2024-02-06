@@ -6,6 +6,7 @@ import * as S from "./MenuItem.style";
 import { publish } from "@/utils/events";
 import MdiIcon from "@/components/MdiIcon";
 import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
+import { Nullable } from "@/types/common";
 
 interface MenuItemProps {
   items: SideBarMenu[];
@@ -19,7 +20,7 @@ export default function MenuItem({
   rootBarOpen,
   enableSubHeader,
 }: MenuItemProps) {
-  const [collapseId, setCollapseId] = useState<string | null>(null);
+  const [collapseId, setCollapseId] = useState<Nullable<string>>(null);
   const navigate = useNavigate();
   const location = useLocation();
 

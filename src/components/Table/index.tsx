@@ -1,16 +1,18 @@
 import { Box, Pagination } from "@mui/material";
-import { GridColDef } from "@mui/x-data-grid";
+import { GridColDef, GridColumnGroupingModel } from "@mui/x-data-grid";
 import { useMemo } from "react";
 import GridTable from "./GridTable";
 import CardTable from "./CardTable";
 import useResponsive from "@/hooks/useResponsive";
+import { Nullable } from "@/types/common";
 
 interface TableProps<ColType extends string | number | symbol> {
   type?: "grid" | "card";
-  rows: Array<{ [k in ColType]: any | null } & { id: any }>;
+  rows: Array<{ [k in ColType]: Nullable<any> } & { id: any }>;
   columns: GridColDef[];
+  columnGroupingModel?: GridColumnGroupingModel;
   checkbox?: boolean;
-  onRowSelection?: (ids: (string|number)[]) => void;
+  onRowSelection?: (ids: (string | number)[]) => void;
   //
   pagination?: boolean;
   page?: number;
@@ -23,19 +25,20 @@ export default function Table<ColType extends string | number | symbol>({
   type = "grid",
   rows,
   columns,
+  columnGroupingModel,
   checkbox,
   pagination,
   page = 1,
   total = 0,
   limit = 1,
   onChangePage,
-  onRowSelection
+  onRowSelection,
 }: TableProps<ColType>) {
   const { mediaQuery } = useResponsive();
   const idDownSm = mediaQuery("sm", "down");
 
   const handleRowSelection = (ids: (string | number)[]) => {
-    onRowSelection?.(ids)
+    onRowSelection?.(ids);
   };
 
   const pageCount = useMemo(
@@ -64,7 +67,13 @@ export default function Table<ColType extends string | number | symbol>({
         />
       ) : (
         <GridTable
-          {...{ rows, columns, checkbox, onRowSelection: handleRowSelection }}
+          {...{
+            rows,
+            columns,
+            columnGroupingModel,
+            checkbox,
+            onRowSelection: handleRowSelection,
+          }}
         />
       )}
 

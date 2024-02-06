@@ -9,7 +9,10 @@ export default function useModal() {
   const open = useModalStoreOpen();
   const close = useModalStoreClose();
 
-  const openModal = (Component: ComponentType<any>, props?: ModalPropsType) => {
+  const openModal = <P extends ModalPropsType>(
+    Component: ComponentType<P>,
+    props?: P
+  ) => {
     open(Component, props ? props : {});
   };
 
