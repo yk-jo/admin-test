@@ -8,7 +8,7 @@ interface CustomSwipableDrawerProps {
 export default function CustomSwipableDrawer({
   children,
 }: CustomSwipableDrawerProps) {
-  const [open, toggleDrawer] = useToggle(false);
+  const [open, toggleDrawer] = useToggle(true);
   const bleedingWidth = useRef<number>(20);
   const width = useRef<number>(450);
 
