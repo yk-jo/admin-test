@@ -5,6 +5,7 @@ export default function Button(theme: Theme) {
     MuiButton: {
       defaultProps: {
         disableElevation: true,
+        color: "secondary",
       },
     },
   } as Components;
