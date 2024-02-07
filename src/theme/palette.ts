@@ -1,43 +1,31 @@
 import { Palette, PaletteOptions, alpha } from "@mui/material";
+import { ColorPartial } from "@mui/material/styles/createPalette";
 
-const _additional = (palette: Palette, isLight?: boolean) => ({
-  sidebar: {
-    menuBg: palette.secondary.main,
-    menuItemColor: "#8391a2",
-    menuItemHoverColor: "#bccee4",
-    menuItemActiveColor: "#ffffff",
-    helpBoxBg: alpha("#ffffff", 0.07),
-  },
-  appbar: {
-    appbarBg: isLight ? "#ffffff" : "#3a444e",
-    appbarItemColor: isLight ? "#6c757d" : "#8391a2",
-    appbarItemHoverColor: isLight ? palette.primary.main : "#bccee4",
-  },
-  modal: {
-    modalBg: "#37404a",
-    modalBorderColor: "#dee2e6",
-  },
-  heading: isLight ? "#6c757d" : "#aab8c5",
-});
+const _additional = (palette: Palette, isLight?: boolean) => {
+  return {
+    sidebar: {
+      menuBg: palette.primary.main,
+      menuItemColor: (palette.primary as ColorPartial)[200]!,
+      menuItemHoverColor: (palette.primary as ColorPartial)[100]!,
+      menuItemActiveColor: "#ffffff",
+      helpBoxBg: alpha("#ffffff", 0.07),
+    },
+    appbar: {
+      appbarBg: isLight ? "#ffffff" : "#3a444e",
+      appbarItemColor: isLight ? "#6c757d" : "#8391a2",
+      appbarItemHoverColor: isLight ? palette.primary.main : "#bccee4",
+    },
+    modal: {
+      modalBg: "#37404a",
+      modalBorderColor: "#dee2e6",
+    },
+    heading: isLight ? "#6c757d" : "#aab8c5",
+  };
+};
 
 const _palette: (isLight?: boolean) => PaletteOptions = (isLight) => {
   const palette = {
     primary: {
-      main: "#8438ff",
-      light: "#bc93fe",
-      dark: "#5b35bc",
-      "50": "#f0e5ff",
-      "100": "#d7bffe",
-      "200": "#bc93fe",
-      "300": "#9e63ff",
-      "400": "#8438ff",
-      "500": "#6600fd",
-      "600": "#5800f7",
-      "700": "#4100ef",
-      "800": "#1c00eb",
-      "900": "#0000dd",
-    },
-    secondary: {
       main: "#30274c",
       light: "#464071",
       dark: "#30274c",
@@ -52,6 +40,22 @@ const _palette: (isLight?: boolean) => PaletteOptions = (isLight) => {
       "800": "#3e3764",
       "900": "#30274c",
     },
+    secondary: {
+      main: "#8438ff",
+      light: "#bc93fe",
+      dark: "#5b35bc",
+      "50": "#f0e5ff",
+      "100": "#d7bffe",
+      "200": "#bc93fe",
+      "300": "#9e63ff",
+      "400": "#8438ff",
+      "500": "#6600fd",
+      "600": "#5800f7",
+      "700": "#4100ef",
+      "800": "#1c00eb",
+      "900": "#0000dd",
+    },
+
     success: {
       main: "#1ad75c",
       light: "#95e8a4",

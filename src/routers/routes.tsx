@@ -21,6 +21,7 @@ import PlaygroundFormView from "@/pages/playground/sample/form-view";
 import PlaygroundNaverMap from "@/pages/playground/sample/naver-map";
 import RoadView from "@/pages/playground/sample/naver-map/RoadView";
 import RealTimeLocation from "@/pages/admin/loc-control/real-time-location";
+import Login from "@/pages/admin/login";
 
 export const routes: RouteObject[] = [
   {
@@ -32,6 +33,10 @@ export const routes: RouteObject[] = [
     errorElement: <Error404 />,
     children: [
       { path: PathContants.Home, element: null },
+      {
+        path: PathContants.Login,
+        element: <Login />,
+      },
       {
         path: PathContants.RealTimeLocation,
         element: <RealTimeLocation/>

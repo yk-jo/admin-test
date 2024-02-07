@@ -5,7 +5,6 @@ const PathContants = {
   Login: "/login",
   UserMng: "/users",
   UserDetail: "/users/detail/:id",
-
   RealTimeLocation: "/loc-control/real-time-location",
   BoardNotice:"/board/notice",
 

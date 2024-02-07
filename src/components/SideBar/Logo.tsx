@@ -12,7 +12,7 @@ export default function Logo({ srcLogo, srcLogoIcon, full }: LogoProps) {
       sx={(theme) => ({
         height: `${appBarHeight}px`,
         color: theme.palette.appbar.appbarItemColor,
-        padding: "10px",
+        padding: "15px",
         textAlign: "center",
         display: "flex",
         justifyContent: "center",

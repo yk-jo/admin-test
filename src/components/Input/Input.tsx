@@ -47,6 +47,7 @@ export default forwardRef(function Input(
       disabled={disabled}
       error={Boolean(errorText)}
       helperText={errorText}
+      sx={{ backgroundColor: "#fff" }}
     />
   );
 });

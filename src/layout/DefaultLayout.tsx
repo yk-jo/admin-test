@@ -25,7 +25,7 @@ export default function DefaultLayout() {
     [location]
   );
   const isHideAll = useMemo(
-    () => location.pathname === PathContants.PlaygroundSampleLogin,
+    () => location.pathname === PathContants.Login,
     [location]
   );
 
@@ -53,7 +53,10 @@ export default function DefaultLayout() {
               flexDirection="column"
               fold={!sidebarOpen}
             >
-              <AppBar title={getMenuTitle(location.pathname)} />
+              <AppBar
+                title={getMenuTitle(location.pathname)}
+                onClickLogout={() => navigate(PathContants.Login)}
+              />
               <S.ContentWrapper full={isFull}>
                 <Outlet />
               </S.ContentWrapper>

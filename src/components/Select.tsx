@@ -4,6 +4,8 @@ import {
   Select as MUISelect,
   MenuItem,
   SelectChangeEvent,
+  SxProps,
+  Theme,
 } from "@mui/material";
 
 interface SelectProps {
@@ -16,6 +18,7 @@ interface SelectProps {
   fullWidth?: boolean;
   errorText?: string;
   onChange?: (e: SelectChangeEvent) => void;
+  sx?: SxProps<Theme>;
 }
 export default function Select({
   value,
@@ -23,15 +26,19 @@ export default function Select({
   items,
   fullWidth,
   errorText,
+  sx,
   onChange,
 }: SelectProps) {
   return (
-    <FormControl fullWidth={fullWidth} error={Boolean(errorText)}>
+    <FormControl fullWidth={fullWidth} error={Boolean(errorText)} sx={sx}>
       <MUISelect
         value={value}
         onChange={onChange}
         disabled={disabled}
-        sx={{ width: fullWidth ? "auto" : "fit-content" }}
+        sx={{
+          width: fullWidth ? "auto" : "fit-content",
+          backgroundColor: "#fff",
+        }}
       >
         {items.map((item) => (
           <MenuItem key={item.value} value={item.value}>
