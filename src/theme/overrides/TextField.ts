@@ -13,9 +13,6 @@ export default function TextField(theme: Theme) {
               backgroundColor: theme.palette.action.disabledBackground,
             },
           },
-          "& input,textarea": {
-            fontSize: "14px",
-          },
         },
       },
     },

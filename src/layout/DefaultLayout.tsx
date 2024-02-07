@@ -8,6 +8,9 @@ import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import * as S from "./layout.style";
 import { SidebarMenus } from "@/config";
 import Footer from "@/components/Footer";
+import { getMenuTitle } from "@/utils/config";
+import Logo from "@/assets/images/mobble-logo.png";
+import LogoIcon from "@/assets/images/mobble-logo-icon.png";
 
 export default function DefaultLayout() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -17,23 +20,30 @@ export default function DefaultLayout() {
 
   useEffect(() => clear(), [location]);
 
-  const isFull = useMemo(() => false, [location]);
-  const isHideAll = useMemo(() => false, [location]);
+  const isFull = useMemo(
+    () => location.pathname === PathContants.RealTimeLocation,
+    [location]
+  );
+  const isHideAll = useMemo(
+    () => location.pathname === PathContants.PlaygroundSampleLogin,
+    [location]
+  );
 
   const isHome = useMemo(
     () => location.pathname === PathContants.Home,
     [location]
   );
 
-  if (isHome) return <Navigate to={PathContants.UserMng} replace />;
+  if (isHome) return <Navigate to={PathContants.RealTimeLocation} replace />;
 
   return (
     <Box component="main">
-      {location.pathname === PathContants.PlaygroundSampleLogin ? (
+      {isHideAll ? (
         <Outlet />
       ) : (
         <>
           <SideBar
+            src={{ logo: Logo, icon: LogoIcon }}
             menuItems={SidebarMenus}
             onOpen={setSidebarOpen}
             enableSubHeader
@@ -43,7 +53,7 @@ export default function DefaultLayout() {
               flexDirection="column"
               fold={!sidebarOpen}
             >
-              <AppBar />
+              <AppBar title={getMenuTitle(location.pathname)} />
               <S.ContentWrapper full={isFull}>
                 <Outlet />
               </S.ContentWrapper>

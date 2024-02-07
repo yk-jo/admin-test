@@ -2,6 +2,7 @@ import { copyright } from "@/config";
 import { Typography, Button, Box } from "@mui/material";
 import * as S from "./error.style";
 import { useNavigate, useRouteError } from "react-router-dom";
+import Logo from "@/assets/images/mobble-logo.png";
 
 export default function Error404() {
   const navigate = useNavigate();
@@ -13,13 +14,17 @@ export default function Error404() {
     <S.Background>
       <S.PageBox>
         <S.PageBoxHeader>
-          <img src="" alt="logo" />
+          <img src={Logo} alt="logo" />
         </S.PageBoxHeader>
         <S.PageBoxBody>
           <S.Text404 variant="h1">
             4<span className="mdi mdi-emoticon-sad" />4
           </S.Text404>
-          <Typography variant="h5" color={"red"} fontWeight={600}>
+          <Typography
+            variant="h5"
+            fontWeight={600}
+            sx={(theme) => ({ color: theme.palette.error.main })}
+          >
             PAGE NOT FOUND
           </Typography>
           <Typography>
@@ -27,7 +32,7 @@ export default function Error404() {
           </Typography>
 
           <Box height={"40px"} />
-          <Button variant="contained" color="info" onClick={() => navigate(-1)}>
+          <Button variant="contained" onClick={() => navigate(-1)}>
             <span className="mdi mdi-reply" />
             이전으로 돌아가기
           </Button>

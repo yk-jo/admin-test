@@ -1,5 +1,9 @@
 import { Box, Pagination } from "@mui/material";
-import { GridColDef, GridColumnGroupingModel } from "@mui/x-data-grid";
+import {
+  GridColDef,
+  GridColumnGroupingModel,
+  GridDensity,
+} from "@mui/x-data-grid";
 import { useMemo } from "react";
 import GridTable from "./GridTable";
 import CardTable from "./CardTable";
@@ -7,11 +11,12 @@ import useResponsive from "@/hooks/useResponsive";
 import { Nullable } from "@/types/common";
 
 interface TableProps<ColType extends string | number | symbol> {
-  type?: "grid" | "card";
+  type?: "grid" | "force-grid" | "card";
   rows: Array<{ [k in ColType]: Nullable<any> } & { id: any }>;
   columns: GridColDef[];
   columnGroupingModel?: GridColumnGroupingModel;
   checkbox?: boolean;
+  density?: GridDensity;
   onRowSelection?: (ids: (string | number)[]) => void;
   //
   pagination?: boolean;
@@ -27,6 +32,7 @@ export default function Table<ColType extends string | number | symbol>({
   columns,
   columnGroupingModel,
   checkbox,
+  density,
   pagination,
   page = 1,
   total = 0,
@@ -72,6 +78,7 @@ export default function Table<ColType extends string | number | symbol>({
             columns,
             columnGroupingModel,
             checkbox,
+            density,
             onRowSelection: handleRowSelection,
           }}
         />

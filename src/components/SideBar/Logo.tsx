@@ -14,6 +14,9 @@ export default function Logo({ srcLogo, srcLogoIcon, full }: LogoProps) {
         color: theme.palette.appbar.appbarItemColor,
         padding: "10px",
         textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       })}
     >
       <img

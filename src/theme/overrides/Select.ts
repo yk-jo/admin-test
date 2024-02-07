@@ -8,7 +8,6 @@ export default function Select(theme: Theme) {
       },
       styleOverrides: {
         root: {
-          fontSize: "14px",
           "& .MuiSelect-select": {
             "&.Mui-disabled": {
               backgroundColor: theme.palette.action.disabledBackground,

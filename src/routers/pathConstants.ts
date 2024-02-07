@@ -6,6 +6,9 @@ const PathContants = {
   UserMng: "/users",
   UserDetail: "/users/detail/:id",
 
+  RealTimeLocation: "/loc-control/real-time-location",
+  BoardNotice:"/board/notice",
+
   //
   PlaygroundHome: `${playground}`,
   PlaygroundInput: `${playground}/input/:type`,
@@ -27,7 +30,7 @@ const PathContants = {
   PlaygroundSampleFormView: `${playground}/sample/form-view`,
 
   PlaygroundNaverMap: `${playground}/sample/naver-map`,
-  PlaygroundNaverMap_RoadView:`${playground}/sample/naver-map/roadview`
+  PlaygroundNaverMap_RoadView: `${playground}/sample/naver-map/roadview`,
 };
 
 export default PathContants;

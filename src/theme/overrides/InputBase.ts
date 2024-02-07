@@ -11,9 +11,6 @@ export default function InputBase(theme: Theme) {
           "&.Mui-disabled": {
             backgroundColor: theme.palette.action.disabledBackground,
           },
-          "& input,textarea": {
-            fontSize: "14px",
-          },
         },
       },
     },

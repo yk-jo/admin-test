@@ -35,6 +35,9 @@ export const PageBoxHeader = styled(Box)(({ theme }) => ({
   borderTopLeftRadius: theme.spacing(0.5),
   borderTopRightRadius: theme.spacing(0.5),
   padding: `${theme.spacing(4)} ${theme.spacing(3)}`,
+  ">img": {
+    width: "40%",
+  },
 }));
 
 export const PageBoxBody = styled(Box)(({ theme }) => ({

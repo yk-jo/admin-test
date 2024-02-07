@@ -20,6 +20,7 @@ import PlaygroundDashboardView from "@/pages/playground/sample/dashboard-view";
 import PlaygroundFormView from "@/pages/playground/sample/form-view";
 import PlaygroundNaverMap from "@/pages/playground/sample/naver-map";
 import RoadView from "@/pages/playground/sample/naver-map/RoadView";
+import RealTimeLocation from "@/pages/admin/loc-control/real-time-location";
 
 export const routes: RouteObject[] = [
   {
@@ -32,11 +33,8 @@ export const routes: RouteObject[] = [
     children: [
       { path: PathContants.Home, element: null },
       {
-        path: PathContants.UserMng,
-        children: [
-          { index: true, element: <Users /> },
-          { path: PathContants.UserDetail, element: <UserDetail /> },
-        ],
+        path: PathContants.RealTimeLocation,
+        element: <RealTimeLocation/>
       },
     ],
   },

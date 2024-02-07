@@ -3,6 +3,7 @@ import {
   DataGrid,
   GridColDef,
   GridColumnGroupingModel,
+  GridDensity,
 } from "@mui/x-data-grid";
 
 interface GridTableProps<ColType extends string | number | symbol> {
@@ -10,6 +11,7 @@ interface GridTableProps<ColType extends string | number | symbol> {
   columns: GridColDef[];
   columnGroupingModel?: GridColumnGroupingModel;
   checkbox?: boolean;
+  density?: GridDensity;
   onRowSelection: (ids: (string | number)[]) => void;
 }
 
@@ -18,11 +20,12 @@ export default function GridTable<ColType extends string | number | symbol>({
   columns,
   columnGroupingModel,
   checkbox,
+  density = "standard",
   onRowSelection,
 }: GridTableProps<ColType>) {
-  console.log(columns);
   return (
     <DataGrid
+      density={density}
       rows={rows}
       columns={columns}
       columnGroupingModel={columnGroupingModel}
