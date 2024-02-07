@@ -131,7 +131,21 @@ export default function RealTimeLocation() {
             />
           </CustomSwipableDrawer>
         </Box>
-        <Map
+        <Box
+          sx={{
+            width,
+            height:
+              height - appBarHeight - (topBarRef.current?.clientHeight || 0),
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h1" fontWeight={700}>
+            지도 영역
+          </Typography>
+        </Box>
+        {/* <Map
           ref={mapRef}
           center={new naver.maps.LatLng(37.3658036, 127.1222656)}
           zoomControl
@@ -147,7 +161,7 @@ export default function RealTimeLocation() {
               )
             );
           }}
-        ></Map>
+        ></Map> */}
       </Box>
     </Box>
   );

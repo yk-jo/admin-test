@@ -29,7 +29,7 @@ export default function AppBar({ title, onClickLogout }: AppBarProps) {
         >
           <MdiIcon path={mdiMenu} />
         </IconButton>
-        {title && <Typography>{title}</Typography>}
+        {title && <Typography variant="h5">{title}</Typography>}
         <Box
           sx={(theme) => ({
             flexGrow: 1,
