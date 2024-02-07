@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import Footer from "@/components/Footer";
 import * as S from "./layout.style";
 
-const isDev = import.meta.env.DEV;
+const isDev = true; //import.meta.env.DEV;
 
 export default function PlaygroundLayout() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);

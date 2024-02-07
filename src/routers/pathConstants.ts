@@ -6,7 +6,9 @@ const PathContants = {
   UserMng: "/users",
   UserDetail: "/users/detail/:id",
   RealTimeLocation: "/loc-control/real-time-location",
-  BoardNotice:"/board/notice",
+  BoardNotice: "/board/notice",
+  BoardNoticeCreate: "/board/notice/create",
+  BoardNoticeDetail: "/board/notice/detail/:id",
 
   //
   PlaygroundHome: `${playground}`,

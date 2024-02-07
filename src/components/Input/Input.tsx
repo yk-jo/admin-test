@@ -11,6 +11,7 @@ interface InputProps {
   value?: string;
   placeholder?: string;
   multiline?: boolean;
+  multilineRow?: number;
   disabled?: boolean;
   type?: HTMLInputTypeAttribute;
   errorText?: string;
@@ -24,6 +25,7 @@ export default forwardRef(function Input(
     placeholder,
     onChange,
     multiline,
+    multilineRow = 5,
     disabled,
     type = "text",
     errorText,
@@ -43,7 +45,7 @@ export default forwardRef(function Input(
       onChange={onChange}
       fullWidth
       multiline={multiline}
-      rows={multiline ? 5 : undefined}
+      rows={multilineRow}
       disabled={disabled}
       error={Boolean(errorText)}
       helperText={errorText}

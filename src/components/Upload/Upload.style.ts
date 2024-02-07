@@ -89,7 +89,7 @@ type DroppableBoxProps = {
 };
 
 export const DroppableBox = MUIStyled(Box, {
-  shouldForwardProp: (prop) => prop !== "isDraggingOver",
+  shouldForwardProp: (prop) => prop !== "isDraggingOver" && prop !== "error",
 })<DroppableBoxProps>(({ theme, error, isDraggingOver }) => ({
   display: "flex",
   flexDirection: "column",

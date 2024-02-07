@@ -22,6 +22,9 @@ import PlaygroundNaverMap from "@/pages/playground/sample/naver-map";
 import RoadView from "@/pages/playground/sample/naver-map/RoadView";
 import RealTimeLocation from "@/pages/admin/loc-control/real-time-location";
 import Login from "@/pages/admin/login";
+import NoticeDetail from "@/pages/admin/notice/detail";
+import Notice from "@/pages/admin/notice";
+import NoticeCreate from "@/pages/admin/notice/create";
 
 export const routes: RouteObject[] = [
   {
@@ -39,7 +42,16 @@ export const routes: RouteObject[] = [
       },
       {
         path: PathContants.RealTimeLocation,
-        element: <RealTimeLocation/>
+        element: <RealTimeLocation />,
+      },
+      { path: PathContants.BoardNotice, element: <Notice /> },
+      {
+        path: PathContants.BoardNoticeCreate,
+        element: <NoticeCreate />,
+      },
+      {
+        path: PathContants.BoardNoticeDetail,
+        element: <NoticeDetail />,
       },
     ],
   },

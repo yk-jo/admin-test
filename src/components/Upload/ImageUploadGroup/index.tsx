@@ -1,4 +1,4 @@
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import {
   DragDropContext,
   Droppable,
@@ -66,13 +66,13 @@ export default function ImageUploadGroup({
 
       <S.FileUploadLabel htmlFor={fileId}>
         <S.NoMouseEvent>
-          <Button variant="contained" color="secondary" sx={{ mb: 1 }}>
+          <Button variant="contained" sx={{ mb: 1 }}>
             추가하기
           </Button>
         </S.NoMouseEvent>
         {Boolean(errorText) && <FormHelperText>{errorText}</FormHelperText>}
       </S.FileUploadLabel>
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext onDragEnd={onDragEnd} >
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (
             <S.DroppableBox

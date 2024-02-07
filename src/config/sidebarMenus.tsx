@@ -22,6 +22,13 @@ const _SidebarMenus: SideBarMenu[] = [
         label: "게시판 관리",
         to: PathContants.UserMng,
         icon: <MdiIcon path={mdiClipboardOutline} />,
+        children: [
+          {
+            label: "공지 관리",
+            icon: <MdiIcon path={mdiClipboardOutline} />,
+            to: PathContants.BoardNotice,
+          },
+        ],
       },
     ],
   },
